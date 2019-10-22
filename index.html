@@ -6,19 +6,37 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>OMDB Site</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://kit.fontawesome.com/0bddc79600.js" crossorigin="anonymous"></script>
     <link href="https://fonts.googleapis.com/css?family=Press+Start+2P&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" media="screen" href="./dist/main.css" />
     <script async defer src="./dist/main.js" type="module"></script>
 </head>
-
 <body>
-    <label for="searchBox">Search for a film:</label>
-    <input id=searchBox type="search" placeholder="Search.." aria-label="Search for a film">
-    <a id="searchButton">Go!</a>
-    <ul>
-        <li>MY LIST O THINGS</li>
+    <header>
+        <h1 id=siteTitle>OMDB Database</h1>
+
+        <div class="faveContainer">
+        <a id=myMovies>My Films</a><a id="myFavourites"><i class="fas fa-heart"></i></a>
+    </div>
+        <div class="searchGrouping">
+        <input id=searchBox type="search" placeholder="Search.." aria-label="Search for a film">
+        <a id=filterButton><i class="fas fa-filter"></i></a>
+        <div id=filterWindow>
+            <p>Filter year:</p>
+            <input type="text" id=filterYear>
+            <a id=selectFilter>Select!</a>
+            <p>Current filter : None</p>
+        </div>
+        <a id="searchButton"><i class="fas fa-search"></i></a>
+    </div>
+    </header>
+    <main>
+    <ul id=filmContainer>
     </ul>
+</main>
+<!-- <footer>
+    James Buckley
+</footer> -->
 </body>
 
 

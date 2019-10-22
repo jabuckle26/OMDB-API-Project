@@ -47,35 +47,78 @@ table {
 
 @-webkit-keyframes Title-Flicker {
   0% {
-    color: #65f703; }
+    color: #b4b4b4; }
   20% {
-    color: #26d320; }
+    color: #505050; }
   40% {
-    color: #288d28; }
+    color: black; }
   60% {
-    color: #288d28; }
+    color: black; }
   80% {
-    color: #26d320; }
+    color: #505050; }
   100% {
-    color: #65f703; } }
+    color: #b4b4b4; } }
 
-@-webkit-keyframes SubTitle-Flicker {
-  0% {
-    color: #f703f7; }
-  20% {
-    color: #c612d6; }
-  40% {
-    color: #6e0477; }
-  60% {
-    color: #6e0477; }
-  80% {
-    color: #c612d6; }
-  100% {
-    color: #f703f7; } }
+header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+  height: 10vh;
+  background-color: grey;
+  font-size: 1.5em;
+  border-bottom: 5px solid red; }
+  header h1#siteTitle {
+    font-size: 1.8em;
+    animation: Title-Flicker 2s infinite; }
+  header a {
+    cursor: pointer;
+    user-select: none; }
+  header .faveContainer {
+    display: flex; }
+    header .faveContainer i {
+      padding-left: 5px; }
+  header #searchGrouping {
+    display: flex;
+    justify-content: center; }
+    header #searchGrouping #filterWindow {
+      display: none;
+      position: fixed;
+      top: 10vh;
+      right: 10vw;
+      width: 200px;
+      height: 200px;
+      background-color: white;
+      border: 2px solid black; }
+      header #searchGrouping #filterWindow:hover {
+        color: yellow; }
 
-a#search-Button {
-  background-color: #2e2a2a;
-  color: white; }
+ul#filmContainer {
+  list-style-type: none;
+  display: flex; }
+  ul#filmContainer li {
+    width: 25vw;
+    height: 80vh; }
+    ul#filmContainer li img {
+      width: 100%;
+      height: 90%; }
+    ul#filmContainer li h4 {
+      width: 100%;
+      height: 10%;
+      color: white; }
+
+footer {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  color: red;
+  height: 5vh;
+  width: 97vw;
+  border-top: 5px solid red; }
 
 html {
-  background-color: #f3ecec; }
+  background-color: black; }
+
+body {
+  position: relative; }

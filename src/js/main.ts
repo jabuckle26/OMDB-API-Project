@@ -52,7 +52,13 @@ const checkEnterKey = (ev) => {
     if (ev.code === 'Enter') {searchFilms()};
 }
 
+const showFilterBox = () => {
+    document.getElementById('filterWindow').style.display = 'inline-block';
+}
+
 document.getElementById('searchButton').addEventListener("click",searchFilms);
 document.getElementById('searchBox').addEventListener("keyup",checkEnterKey);
+document.getElementById('filterButton').addEventListener('click', showFilterBox);
+
 
 getAPIData();

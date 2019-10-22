@@ -1,4 +1,50 @@
-a#search-Button {
-    background-color:$color-button1;
+header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
     color: white;
+    height: 10vh;
+    background-color: $header-color;
+    font-size: 1.5em;
+    border-bottom: 5px solid red;
+
+    h1#siteTitle {
+        font-size:1.8em;
+        animation: Title-Flicker 2s infinite;
+    }
+
+    a {
+        cursor: pointer;
+        user-select: none;
+        
+    }
+
+    .faveContainer {
+        display:flex;
+
+        i {
+            padding-left: 5px;
+        }
+    }
+
+    #searchGrouping {
+        display: flex;
+        justify-content: center;
+
+        #filterWindow {
+            display: none;
+            position: fixed;
+            top: 10vh;
+            right:10vw;
+            width: 200px;
+            height:200px;
+            background-color: white;
+            border: 2px solid black;
+
+            &:hover {
+                color:yellow;
+            }
+        }
+    }
 }
