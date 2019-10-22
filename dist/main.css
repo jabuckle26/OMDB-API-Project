@@ -73,5 +73,9 @@ table {
   100% {
     color: #f703f7; } }
 
+a#search-Button {
+  background-color: #2e2a2a;
+  color: white; }
+
 html {
   background-color: #f3ecec; }
