@@ -93,3 +93,10 @@ document.getElementById('filterButton').addEventListener('click', showFilterBox)
 // document.getElementById('selectFilter').addEventListener('click', filterSearch);
 
 getAPIData();
+
+let header = document.getElementsByTagName('header')[0]; 
+    window.onscroll = function (e) {  
+        if (header) {
+            console.log('JAMES');
+            header.style.left = window.pageXOffset + 'px';
+    }  }

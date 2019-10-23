@@ -59,8 +59,10 @@ table {
   100% {
     color: #b4b4b4; } }
 
+*, body {
+  font-family: 'Luckiest Guy', cursive, Arial, Helvetica, sans-serif; }
+
 header {
-  position: fixed;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -68,7 +70,7 @@ header {
   color: white;
   height: 10vh;
   width: 100vw;
-  background-color: grey;
+  background-color: black;
   font-size: 1.5em; }
   header h1#siteTitle {
     font-size: 1.8em;
@@ -91,13 +93,13 @@ header {
       flex-direction: column;
       justify-content: space-evenly;
       align-items: center;
-      position: fixed;
-      z-index: 2;
+      position: absolute;
+      z-index: 100;
       top: 9.9vh;
       right: 2vw;
       width: 200px;
       height: 120px;
-      background-color: grey;
+      background-color: black;
       color: black;
       border: 2px solid red;
       border-top: none; }
@@ -105,20 +107,34 @@ header {
         height: 20px;
         width: 50%; }
       header .searchGrouping #filterWindow #selectFilter {
-        background-color: seagreen;
+        background-color: red;
         padding: 2px;
         border-radius: 2px;
         border: 1px solid red; }
 
 #filmContainer {
-  padding-top: 11vh;
-  overflow: visible;
+  padding-top: 2vh;
+  overflow-x: auto;
   display: grid;
-  grid-template-columns: 200px 200px 200px 200px 200px 200px 200px 200px 200px 200px;
-  column-gap: 5px; }
+  grid-template-columns: 300px 300px 300px 300px 300px 300px 300px 300px 300px 300px;
+  column-gap: 20px;
+  z-index: 1;
+  height: 85vh;
+  width: 100vw; }
   #filmContainer div.film {
-    width: 200px;
-    height: 85vh; }
+    position: relative;
+    width: 300px;
+    height: 100%; }
+    #filmContainer div.film:hover {
+      border: 2px solid red;
+      opacity: 0.5;
+      cursor: pointer; }
+      #filmContainer div.film:hover > .hiddenInfo {
+        opacity: 1;
+        color: white;
+        background-color: red; }
+        #filmContainer div.film:hover > .hiddenInfo:hover {
+          color: yellow; }
     #filmContainer div.film .visibleInfo {
       width: 100%;
       height: 100%; }
@@ -131,12 +147,13 @@ header {
         color: white;
         display: flex;
         justify-content: center; }
-      #filmContainer div.film .visibleInfo:hover {
-        border: 2px solid red;
-        opacity: 0.5;
-        cursor: pointer; }
-        #filmContainer div.film .visibleInfo:hover + .hiddenInfo {
-          opacity: 1; }
+    #filmContainer div.film .hiddenInfo {
+      position: absolute;
+      top: 40%;
+      left: 25%;
+      opacity: 0;
+      font-size: 1.2em;
+      padding: 10px; }
 
 footer {
   display: flex;
@@ -148,4 +165,4 @@ footer {
   border-top: 5px solid red; }
 
 html {
-  background-color: black; }
+  background-color: #423d3d; }

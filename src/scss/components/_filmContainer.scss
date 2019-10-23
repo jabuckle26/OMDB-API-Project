@@ -1,17 +1,35 @@
 #filmContainer{
-    padding-top: 11vh;
+    padding-top: 2vh;
     // top: 11vh;
-    overflow: visible;
+    overflow-x:auto;
     display: grid;
-    grid-template-columns: 200px 200px 200px 200px 200px 200px 200px 200px 200px 200px  ;
-    column-gap: 5px;
+    grid-template-columns: $img-width $img-width $img-width $img-width $img-width $img-width $img-width $img-width $img-width $img-width ;
+    column-gap: 20px;
+    z-index:1;
+    height: 85vh;
+    width: 100vw;
     
     
-
     div.film {
+        position: relative;
+        width: $img-width;
+        height: 100%;
 
-        width: 200px;
-        height: 85vh;
+        &:hover {
+            border: 2px solid red;
+            opacity: 0.5;
+            cursor: pointer;
+
+            &>.hiddenInfo{
+                opacity: 1;
+                color:white;
+                background-color:red;
+
+                &:hover {
+                    color:$site-tertiary-background;
+                }
+            }
+        }
 
         .visibleInfo{
             width: 100%;
@@ -29,20 +47,15 @@
                 display: flex;
                 justify-content: center;
             }
-
-            &:hover {
-                border: 2px solid red;
-                opacity: 0.5;
-                cursor: pointer;
-
-                &+.hiddenInfo{
-                    opacity: 1;
-                }
-            }
         }
 
         .hiddenInfo {
-
+            position: absolute;
+            top:40%;
+            left:25%;
+            opacity:0;
+            font-size: 1.2em;
+            padding: 10px;
         }
     }
 }
