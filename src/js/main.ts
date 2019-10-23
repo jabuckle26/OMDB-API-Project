@@ -77,10 +77,15 @@ const showFilterBox = () => {
     }
 }
 
+const appendFavourites = () => {
+    console.log('JAMES');
+}
 
 
 document.getElementById('searchButton').addEventListener("click", searchFilms);
 document.getElementById('searchBox').addEventListener("keyup", checkEnterKey);
 document.getElementById('filterButton').addEventListener('click', showFilterBox);
+
+document.getElementById('myMovies').addEventListener('click', appendFavourites);
 
 getAPIData();
