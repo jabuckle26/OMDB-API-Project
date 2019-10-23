@@ -53,7 +53,16 @@ const checkEnterKey = (ev) => {
 }
 
 const showFilterBox = () => {
-    document.getElementById('filterWindow').style.display = 'inline-block';
+    let targetDiv = document.getElementById('filterWindow');
+    if (targetDiv.style.display === 'inline-block') {
+        //Switch to hidden
+        targetDiv.style.display = "none";
+        document.getElementById('filterButton').style.color = "$activatedButton";
+    } else {
+        //Switch to visible
+        targetDiv.style.display = "flex";
+    }
+
 }
 
 document.getElementById('searchButton').addEventListener("click",searchFilms);

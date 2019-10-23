@@ -12,12 +12,12 @@ header {
     h1#siteTitle {
         font-size:1.8em;
         animation: Title-Flicker 2s infinite;
+
     }
 
     a {
         cursor: pointer;
         user-select: none;
-        
     }
 
     .faveContainer {
@@ -28,22 +28,35 @@ header {
         }
     }
 
-    #searchGrouping {
+    .searchGrouping {
         display: flex;
         justify-content: center;
 
         #filterWindow {
             display: none;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
             position: fixed;
+            z-index: 1;
             top: 10vh;
-            right:10vw;
+            right:5vw;
             width: 200px;
-            height:200px;
+            height:120px;
             background-color: white;
+            color:black;
             border: 2px solid black;
 
-            &:hover {
-                color:yellow;
+            #filterYear {
+                height: 20px;
+                width: 50%;
+            }
+
+            #selectFilter {
+                background-color: $background-button1;
+                padding: 2px;
+                border-radius: 2px;
+                border: 1px solid black;
             }
         }
     }
