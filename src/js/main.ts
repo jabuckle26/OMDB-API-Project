@@ -32,12 +32,18 @@ const searchFilms = () => {
     const boxValue = document.getElementById('searchBox') as HTMLInputElement;
     const userSearch = boxValue.value;
     boxValue.value = '';
+    const filterBoxValue = document.getElementById('filterYear') as HTMLInputElement;
+    yearFilter = filterBoxValue.value;
+    filterBoxValue.value = '';
+
     search = userSearch;
-    getAPIData(yearFilter);
+    getAPIData();
 
 }
 
-const getAPIData = (yearFilter) => {
+const getAPIData = () => {
+    console.log('J', yearFilter);
+    console.log('J', search);
     if (yearFilter === '') {
         fetch(`http://www.omdbapi.com/?s=${search}&apikey=70b6f337`)
             .then((response) => {
@@ -77,7 +83,7 @@ const showFilterBox = () => {
     } else {
         //Switch to visible
         targetDiv.style.display = "flex";
-        document.getElementById('filterButton').style.color = "$background-button1";
+        document.getElementById('filterButton').style.color = "black";
     }
 }
 
@@ -85,12 +91,12 @@ const filterSearch = () => {
     const boxValue = document.getElementById('filterYear') as HTMLInputElement;
     yearFilter = boxValue.value;
     console.log(yearFilter);
-    getAPIData(yearFilter);
+    //getAPIData(yearFilter);
 }
 
 document.getElementById('searchButton').addEventListener("click", searchFilms);
 document.getElementById('searchBox').addEventListener("keyup", checkEnterKey);
 document.getElementById('filterButton').addEventListener('click', showFilterBox);
-document.getElementById('selectFilter').addEventListener('click', filterSearch);
+// document.getElementById('selectFilter').addEventListener('click', filterSearch);
 
-getAPIData(yearFilter);
+getAPIData();
