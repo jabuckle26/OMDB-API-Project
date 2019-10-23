@@ -1,13 +1,15 @@
 header {
+    position: fixed;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
     color: white;
     height: 10vh;
+    width: 100vw;
     background-color: $header-color;
     font-size: 1.5em;
-    border-bottom: 5px solid red;
+
 
     h1#siteTitle {
         font-size:1.8em;

@@ -60,15 +60,16 @@ table {
     color: #b4b4b4; } }
 
 header {
+  position: fixed;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
   color: white;
   height: 10vh;
+  width: 100vw;
   background-color: grey;
-  font-size: 1.5em;
-  border-bottom: 5px solid red; }
+  font-size: 1.5em; }
   header h1#siteTitle {
     font-size: 1.8em;
     animation: Title-Flicker 2s infinite; }
@@ -110,10 +111,13 @@ header {
         border: 1px solid red; }
 
 #filmContainer {
-  list-style-type: none;
-  display: flex; }
+  position: absolute;
+  top: 11vh;
+  overflow: visible;
+  display: grid;
+  grid-template-columns: 200px 200px 200px 200px 200px 200px 200px 200px 200px 200px;
+  column-gap: 5px; }
   #filmContainer div {
-    width: 25vw;
     height: 80vh; }
     #filmContainer div img {
       width: 100%;
