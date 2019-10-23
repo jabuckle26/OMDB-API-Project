@@ -12,7 +12,7 @@ header {
 
     h1#siteTitle {
         font-size:1.8em;
-        animation: Title-Flicker 2s infinite;
+        animation: Title-Flicker 4s infinite;
 
     }
 
@@ -38,33 +38,11 @@ header {
         display: flex;
         justify-content: center;
 
-        #filterWindow {
-            display: none;
-            flex-direction: column;
-            justify-content: space-evenly;
-            align-items: center;
-            position: absolute;
-            z-index: 100;
-            top: 9.9vh;
-            right:2vw;
-            width: 200px;
-            height:120px;
-            background-color: $header-color;
-            color:black;
-            border: 2px solid $site-secondary-background;
-            border-top: none;
-
-            #filterYear {
-                height: 20px;
-                width: 50%;
-            }
-
-            #selectFilter {
-                background-color: $site-secondary-background;
-                padding: 2px;
-                border-radius: 2px;
-                border: 1px solid $site-secondary-background;
-            }
-        }
+    #filterYear {
+        height: 20px;
+        width: 50%;
+        display: none;
+        margin-left: 5px;
+    }
     }
 }

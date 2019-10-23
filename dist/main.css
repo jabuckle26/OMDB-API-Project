@@ -49,13 +49,13 @@ table {
   0% {
     color: #b4b4b4; }
   20% {
-    color: #505050; }
+    color: #787878; }
   40% {
-    color: black; }
-  60% {
-    color: black; }
-  80% {
     color: #505050; }
+  60% {
+    color: #505050; }
+  80% {
+    color: #787878; }
   100% {
     color: #b4b4b4; } }
 
@@ -74,7 +74,7 @@ header {
   font-size: 1.5em; }
   header h1#siteTitle {
     font-size: 1.8em;
-    animation: Title-Flicker 2s infinite; }
+    animation: Title-Flicker 4s infinite; }
   header a {
     cursor: pointer;
     user-select: none;
@@ -88,29 +88,11 @@ header {
   header .searchGrouping {
     display: flex;
     justify-content: center; }
-    header .searchGrouping #filterWindow {
+    header .searchGrouping #filterYear {
+      height: 20px;
+      width: 50%;
       display: none;
-      flex-direction: column;
-      justify-content: space-evenly;
-      align-items: center;
-      position: absolute;
-      z-index: 100;
-      top: 9.9vh;
-      right: 2vw;
-      width: 200px;
-      height: 120px;
-      background-color: black;
-      color: black;
-      border: 2px solid red;
-      border-top: none; }
-      header .searchGrouping #filterWindow #filterYear {
-        height: 20px;
-        width: 50%; }
-      header .searchGrouping #filterWindow #selectFilter {
-        background-color: red;
-        padding: 2px;
-        border-radius: 2px;
-        border: 1px solid red; }
+      margin-left: 5px; }
 
 #filmContainer {
   padding-top: 2vh;

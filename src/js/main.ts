@@ -35,8 +35,6 @@ const searchFilms = () => {
 }
 
 const getAPIData = () => {
-    console.log('J', yearFilter);
-    console.log('J', search);
     if (yearFilter === '') {
         fetch(`http://www.omdbapi.com/?s=${search}&apikey=70b6f337`)
             .then((response) => {
@@ -49,7 +47,6 @@ const getAPIData = () => {
             }
             );
     } else {
-        console.log(yearFilter, 'HERE');
         fetch(`http://www.omdbapi.com/?s=${search}&y=${yearFilter}&apikey=70b6f337`)
         .then((response) => {
             const newResponse = response.json();
@@ -68,35 +65,22 @@ const checkEnterKey = (ev) => {
 }
 
 const showFilterBox = () => {
-    let targetDiv = document.getElementById('filterWindow');
-    if (targetDiv.style.display === 'flex') {
+    let targetBox = document.getElementById('filterYear');
+    if (targetBox.style.display === 'inline-block') {
         //Switch to hidden
-        targetDiv.style.display = "none";
+        targetBox.style.display = "none";
         document.getElementById('filterButton').style.color = "white";
     } else {
         //Switch to visible
-        targetDiv.style.display = "flex";
-        document.getElementById('filterButton').style.color = "black";
+        targetBox.style.display = "inline-block";
+        document.getElementById('filterButton').style.color = "yellow";
     }
 }
 
-const filterSearch = () => {
-    const boxValue = document.getElementById('filterYear') as HTMLInputElement;
-    yearFilter = boxValue.value;
-    console.log(yearFilter);
-    //getAPIData(yearFilter);
-}
+
 
 document.getElementById('searchButton').addEventListener("click", searchFilms);
 document.getElementById('searchBox').addEventListener("keyup", checkEnterKey);
 document.getElementById('filterButton').addEventListener('click', showFilterBox);
-// document.getElementById('selectFilter').addEventListener('click', filterSearch);
 
 getAPIData();
-
-let header = document.getElementsByTagName('header')[0]; 
-    window.onscroll = function (e) {  
-        if (header) {
-            console.log('JAMES');
-            header.style.left = window.pageXOffset + 'px';
-    }  }
