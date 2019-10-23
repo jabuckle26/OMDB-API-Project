@@ -1,4 +1,5 @@
 // http://www.omdbapi.com/?i=tt3896198&apikey=70b6f337
+import { FilmHTML } from './classes';
 
 let search = 'james';
 let yearFilter = '';
@@ -7,16 +8,18 @@ const buildList = (data) => {
     clearHTMLLIST();
     const ul = document.getElementsByTagName('ul')[0];
     Array.from(data.Search).forEach((film) => {
-        const li = document.createElement('li');
-        li.classList.add('film');
-        const img = document.createElement('img');
-        const txt = document.createElement('h4');
+        // const li = document.createElement('li');
+        // li.classList.add('film');
+        // const img = document.createElement('img');
+        // const txt = document.createElement('h4');
 
-        txt.innerHTML = film['Title'];
-        img.src = film['Poster'];
-        li.append(img);
-        li.append(txt);
-        ul.append(li);
+        // txt.innerHTML = film['Title'];
+        // img.src = film['Poster'];
+        // li.append(img);
+        // li.append(txt);
+        // ul.append(li);
+        let filmInstance = new FilmHTML(film);
+        ul.innerHTML += filmInstance.html;
     });
 }
 
