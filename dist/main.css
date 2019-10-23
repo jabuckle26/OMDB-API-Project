@@ -109,22 +109,22 @@ header {
         border-radius: 2px;
         border: 1px solid red; }
 
-ul#filmContainer {
+#filmContainer {
   list-style-type: none;
   display: flex; }
-  ul#filmContainer li {
+  #filmContainer div {
     width: 25vw;
     height: 80vh; }
-    ul#filmContainer li img {
+    #filmContainer div img {
       width: 100%;
       height: 90%; }
-    ul#filmContainer li h4 {
+    #filmContainer div h4 {
       width: 100%;
       height: 10%;
       color: white;
       display: flex;
       justify-content: center; }
-    ul#filmContainer li:hover {
+    #filmContainer div:hover {
       border: 2px solid red; }
 
 footer {
