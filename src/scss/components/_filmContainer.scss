@@ -15,7 +15,7 @@
         height: 100%;
 
         &:hover {
-            border: 2px solid red;
+            border: 2px solid $site-secondary-background;
             opacity: 0.5;
             
 
@@ -59,12 +59,12 @@
 
             .addFaves {
                 color: $site-tertiary-background;
-                background-color: red;
+                background-color: $site-secondary-background;
                 padding: 5%;
             }
 
             .faved {
-                color: red;
+                color: $site-secondary-background;
                 background-color: $site-tertiary-background;
             }
         }
