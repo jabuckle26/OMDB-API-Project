@@ -8,7 +8,7 @@ export class FilmHTML {
                             <h4>${film.Title}</h4>
                         </div>
                         <div class=hiddenInfo>
-                            <a id=myMovies>My Films <i class="fas fa-heart"></i></a>
+                            <a class="addFaves" id="${film.imdbID}">My Films <i class="fas fa-heart"></i></a>
                         </div>
                     </div>`
     }

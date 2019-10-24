@@ -1,8 +1,9 @@
 // http://www.omdbapi.com/?i=tt3896198&apikey=70b6f337
 import { FilmHTML } from './classes';
 
-let search = 'james';
-let yearFilter = '';
+let search: string = 'james';
+let yearFilter: string = '';
+let favouriteList: string[] = [];
 
 const buildList = (data) => {
     clearHTMLLIST();
@@ -11,6 +12,15 @@ const buildList = (data) => {
         let filmInstance = new FilmHTML(film);
         section.innerHTML += filmInstance.html;
     });
+    Array.from(document.querySelectorAll('.addFaves')).forEach(targetTag => {
+        targetTag.addEventListener('click', appendFavourites);
+    })
+}
+
+const buildFaves = (data) => {
+    const section = document.getElementById('filmContainer');
+    let filmInstance = new FilmHTML(data);
+    section.innerHTML += filmInstance.html;
 }
 
 const clearHTMLLIST = () => {
@@ -48,15 +58,15 @@ const getAPIData = () => {
             );
     } else {
         fetch(`http://www.omdbapi.com/?s=${search}&y=${yearFilter}&apikey=70b6f337`)
-        .then((response) => {
-            const newResponse = response.json();
-            return newResponse;
-        })
-        .then((data) => { return buildList(data) })
-        .catch((error) => {
-            throw new Error(error)
-        }
-        );
+            .then((response) => {
+                const newResponse = response.json();
+                return newResponse;
+            })
+            .then((data) => { return buildList(data) })
+            .catch((error) => {
+                throw new Error(error)
+            }
+            );
     }
 }
 
@@ -77,15 +87,36 @@ const showFilterBox = () => {
     }
 }
 
-const appendFavourites = () => {
-    console.log('JAMES');
+const appendFavourites = (e) => {
+    favouriteList.push(e.target.id);
+    console.log(favouriteList);
 }
 
+const showFavourites = () => {
+    clearHTMLLIST();
+    favouriteList.forEach(id => {
+        if (id !== '') {
+        fetch(`http://www.omdbapi.com/?i=${id}&apikey=70b6f337`)
+            .then((response) => {
+
+                const newResponse = response.json();
+                return newResponse;
+            })
+            .then((data) => {
+                console.log(data);
+                return buildFaves(data)
+            })
+            .catch((error) => {
+                throw new Error(error)
+            }
+            );
+    }});
+}
 
 document.getElementById('searchButton').addEventListener("click", searchFilms);
 document.getElementById('searchBox').addEventListener("keyup", checkEnterKey);
 document.getElementById('filterButton').addEventListener('click', showFilterBox);
+document.getElementById('myMovies').addEventListener('click', showFavourites);
 
-document.getElementById('myMovies').addEventListener('click', appendFavourites);
 
 getAPIData();
