@@ -48,7 +48,7 @@ const searchFilms = () => {
 
 const getAPIData = () => {
     if (yearFilter === '') {
-        fetch(`http://www.omdbapi.com/?s=${search}&apikey=70b6f337`)
+        fetch(`https://www.omdbapi.com/?s=${search}&apikey=70b6f337`)
             .then((response) => {
                 const newResponse = response.json();
                 return newResponse;
@@ -59,7 +59,7 @@ const getAPIData = () => {
             }
             );
     } else {
-        fetch(`http://www.omdbapi.com/?s=${search}&y=${yearFilter}&apikey=70b6f337`)
+        fetch(`https://www.omdbapi.com/?s=${search}&y=${yearFilter}&apikey=70b6f337`)
             .then((response) => {
                 const newResponse = response.json();
                 return newResponse;
@@ -107,7 +107,7 @@ const showFavourites = () => {
     clearHTMLLIST();
     favouriteList.forEach(id => {
         if (id !== '') {
-            fetch(`http://www.omdbapi.com/?i=${id}&apikey=70b6f337`)
+            fetch(`https://www.omdbapi.com/?i=${id}&apikey=70b6f337`)
                 .then((response) => {
 
                     const newResponse = response.json();
