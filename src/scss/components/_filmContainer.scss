@@ -17,12 +17,12 @@
         &:hover {
             border: 2px solid red;
             opacity: 0.5;
-            cursor: pointer;
+            
 
             &>.hiddenInfo{
                 opacity: 1;
-                color:white;
-                background-color:red;
+                cursor: pointer;
+
 
                 &:hover {
                     color:$site-tertiary-background;
@@ -55,6 +55,18 @@
             opacity:0;
             font-size: 1.2em;
             padding: 10px;
+            width: 40%;
+
+            .addFaves {
+                color: $site-tertiary-background;
+                background-color: red;
+                padding: 5%;
+            }
+
+            .faved {
+                color: red;
+                background-color: $site-tertiary-background;
+            }
         }
     }
 }

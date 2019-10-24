@@ -109,12 +109,10 @@ header {
     height: 100%; }
     #filmContainer div.film:hover {
       border: 2px solid red;
-      opacity: 0.5;
-      cursor: pointer; }
+      opacity: 0.5; }
       #filmContainer div.film:hover > .hiddenInfo {
         opacity: 1;
-        color: white;
-        background-color: red; }
+        cursor: pointer; }
         #filmContainer div.film:hover > .hiddenInfo:hover {
           color: yellow; }
     #filmContainer div.film .visibleInfo {
@@ -135,7 +133,15 @@ header {
       left: 25%;
       opacity: 0;
       font-size: 1.2em;
-      padding: 10px; }
+      padding: 10px;
+      width: 40%; }
+      #filmContainer div.film .hiddenInfo .addFaves {
+        color: yellow;
+        background-color: red;
+        padding: 5%; }
+      #filmContainer div.film .hiddenInfo .faved {
+        color: red;
+        background-color: yellow; }
 
 footer {
   display: flex;

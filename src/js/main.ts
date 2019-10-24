@@ -1,4 +1,3 @@
-// http://www.omdbapi.com/?i=tt3896198&apikey=70b6f337
 import { FilmHTML } from './classes';
 
 let search: string = 'james';
@@ -21,6 +20,8 @@ const buildFaves = (data) => {
     const section = document.getElementById('filmContainer');
     let filmInstance = new FilmHTML(data);
     section.innerHTML += filmInstance.html;
+    document.getElementById(data.imdbID).classList.add('faved');
+    document.getElementById(data.imdbID).addEventListener('click', appendFavourites);
 }
 
 const clearHTMLLIST = () => {
@@ -32,6 +33,7 @@ const clearHTMLLIST = () => {
 
 const searchFilms = () => {
     //const userSearch = $("#searchBox").val().toString();
+    document.getElementById('myMovies').style.color = 'white';
     const boxValue = document.getElementById('searchBox') as HTMLInputElement;
     const userSearch = boxValue.value;
     boxValue.value = '';
@@ -88,29 +90,43 @@ const showFilterBox = () => {
 }
 
 const appendFavourites = (e) => {
+    if (favouriteList.includes(e.target.id)){
+        favouriteList = favouriteList.filter(item => {
+            return (item !== e.target.id)
+        })
+        document.getElementById(e.target.id).classList.remove('faved');
+    } else {
     favouriteList.push(e.target.id);
-    console.log(favouriteList);
+    markAsFavouritie(e);
+    }
 }
 
+
 const showFavourites = () => {
+    document.getElementById('myMovies').style.color = 'red';
     clearHTMLLIST();
     favouriteList.forEach(id => {
         if (id !== '') {
-        fetch(`http://www.omdbapi.com/?i=${id}&apikey=70b6f337`)
-            .then((response) => {
+            fetch(`http://www.omdbapi.com/?i=${id}&apikey=70b6f337`)
+                .then((response) => {
 
-                const newResponse = response.json();
-                return newResponse;
-            })
-            .then((data) => {
-                console.log(data);
-                return buildFaves(data)
-            })
-            .catch((error) => {
-                throw new Error(error)
-            }
-            );
-    }});
+                    const newResponse = response.json();
+                    return newResponse;
+                })
+                .then((data) => {
+                    return buildFaves(data)
+                })
+                .catch((error) => {
+                    throw new Error(error)
+                }
+                );
+        }
+    });
+}
+
+const markAsFavouritie = (e) => {
+    let a: HTMLElement = e.target;
+    a.classList.toggle('faved');
 }
 
 document.getElementById('searchButton').addEventListener("click", searchFilms);
